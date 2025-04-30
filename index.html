@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Обновленный Title -->
+    <title>Резюме: Чупров Данила - Специалист технической поддержки AdTech</title>
+    <!-- Подключаем Font Awesome (для иконок) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Опционально: Иконка для вкладки -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+    <style>
+        /* ============================
+           Base & Variables (Keitaro Theme)
+           ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Можно использовать системный шрифт или подключить Montserrat */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            /* font-family: 'Montserrat', sans-serif; */
+        }
+
+        /* Если нужен шрифт Montserrat, раскомментируй строку ниже */
+        /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap'); */
+
+        :root {
+            /* Keitaro Colors */
+            --keitaro-green: #61d800;
+            --keitaro-green-light: #a0eb61;
+            --keitaro-green-dark: #4eac00;
+            --white: #ffffff;
+            --light-gray-bg: #f8f9fa; /* Светлый фон для карточек */
+            --medium-gray-border: #dee2e6; /* Границы */
+            --dark-gray-text: #495057; /* Основной текст */
+            --darker-gray-text: #212529; /* Заголовки */
+            --cyan-focus: #0dcaf0; /* Цвет фокуса */
+
+            /* Original vars mapped (some might not be used) */
+            --gold: var(--keitaro-green);
+            --light-gold: var(--keitaro-green-light);
+            --dark-gold: var(--keitaro-green-dark);
+            --dark: var(--white); /* Основной фон теперь белый */
+            --dark-gray: var(--light-gray-bg); /* Карточки светло-серые */
+            --medium-gray: var(--medium-gray-border); /* Границы */
+            --light-gray: #6c757d; /* Дополнительный серый текст */
+            --text-light: var(--darker-gray-text); /* Основной текст теперь темный */
+            --text-medium: var(--dark-gray-text); /* Вторичный текст темный */
+            --cyan: var(--cyan-focus);
+
+            --border-radius-sm: 5px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            /* Адаптированные тени для светлой темы */
+            --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.15);
+            /* Тень от зеленого убрана, т.к. на светлом фоне может выглядеть грязно */
+            --shadow-gold: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background: var(--dark); /* Белый фон */
+            color: var(--text-light); /* Темный текст */
+            overflow-x: hidden;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            overflow: hidden; /* Helps contain elements */
+        }
+
+        /* ============================
+           Dividers (Адаптированный разделитель)
+           ============================ */
+        .section-divider-container {
+            padding: 30px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .neon-divider {
+            width: 100%;
+            height: 1px; /* Тоньше */
+            /* Градиент с зеленым Keitaro */
+            background: linear-gradient(90deg, transparent, var(--keitaro-green), transparent);
+            opacity: 0.8; /* Более заметный */
+        }
+
+        /* ============================
+           Helper Classes & Accessibility
+           ============================ */
+        .visually-hidden {
+            position: absolute !important;
+            height: 1px; width: 1px;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap;
+            border: 0;
+            margin: -1px;
+            padding: 0;
+        }
+
+        /* Improved focus visibility for keyboard navigation */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--cyan);
+            outline-offset: 2px;
+            box-shadow: none;
+        }
+
+        /* ============================
+           Resume Specific Styles (Keitaro Theme)
+           ============================ */
+
+        /* Стили Шапки Резюме */
+        header.resume-header {
+            position: static;
+            padding: 40px 5% 20px;
+            text-align: center;
+            background: var(--dark-gray); /* Светло-серый фон шапки */
+            border-bottom: 2px solid var(--keitaro-green);
+            height: auto;
+        }
+
+        header.resume-header h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--darker-gray-text); /* Темный заголовок */
+            margin-bottom: 5px;
+            text-shadow: none; /* Убираем тень на светлом фоне */
+        }
+
+        header.resume-header .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--dark-gray-text); /* Темный подзаголовок */
+            margin: 0;
+            font-weight: 300;
+        }
+
+        /* Секция профиля */
+        .profile-section {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: var(--white); /* Белый фон карточки */
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 30px;
+            align-items: flex-start;
+            box-shadow: var(--shadow-medium);
+             border: 1px solid var(--medium-gray-border); /* Добавим легкую границу */
+        }
+
+        .profile-photo {
+            flex-basis: 200px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--keitaro-green); /* Зеленая рамка */
+            box-shadow: var(--shadow-light); /* Легкая тень */
+            background-color: var(--light-gray-bg); /* Фон-заглушка */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-photo .fallback-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-size: 80px;
+            color: var(--medium-gray-border); /* Цвет иконки-заглушки */
+        }
+
+
+        .profile-info {
+            flex-basis: calc(100% - 230px);
+            flex-grow: 1;
+        }
+
+        .profile-info h2,
+        .profile-summary h2 {
+            color: var(--darker-gray-text); /* Темный заголовок */
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--medium-gray-border);
+            padding-bottom: 10px;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: var(--dark-gray-text); /* Темный текст */
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info .icon {
+            color: var(--keitaro-green); /* Зеленые иконки */
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: var(--darker-gray-text); /* Темные ссылки */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--keitaro-green); /* Зеленый при наведении */
+            text-decoration: underline;
+        }
+
+        .salary-info {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: var(--darker-gray-text); /* Темный текст */
+            display: flex;
+            align-items: center;
+            /* Адаптируем фон для зарплаты */
+            background: rgba(97, 216, 0, 0.1); /* Прозрачный зеленый */
+            padding: 10px 15px;
+            border-radius: var(--border-radius-sm);
+            border-left: 3px solid var(--keitaro-green); /* Зеленая полоска */
+        }
+        .salary-info .icon {
+            color: var(--keitaro-green);
+            margin-right: 10px;
+        }
+
+        .profile-summary {
+            background: var(--light-gray-bg); /* Светло-серый фон */
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-light); /* Легкая тень */
+        }
+
+        .profile-summary p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray-text); /* Темный текст */
+        }
+
+        /* Секция Навыков */
+        .skills-section {
+            padding: 60px 5%;
+            background: var(--white); /* Белый фон секции */
+        }
+        .skills-section h2 {
+             font-size: clamp(2rem, 5vw, 2.5rem);
+             color: var(--darker-gray-text); /* Темный заголовок */
+             margin-bottom: 40px;
+             text-align: center;
+             text-shadow: none;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--white); /* Белый фон карточки */
+            padding: 25px 25px 30px;
+            border-radius: var(--border-radius-lg);
+            border-top: 4px solid var(--keitaro-green); /* Зеленая полоска сверху */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+             border: 1px solid var(--medium-gray-border); /* Граница */
+        }
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Усиленная тень */
+        }
+        .skill-icon {
+            display: block;
+            font-size: 2.2rem;
+            color: var(--keitaro-green); /* Зеленая иконка */
+            margin: 0 auto 15px auto;
+            text-shadow: none; /* Убираем тень */
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.05);
+        }
+        .skill-card h3 {
+            font-size: 1.3rem;
+            color: var(--darker-gray-text); /* Темный заголовок карточки */
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--dark-gray-text); /* Темный текст списка */
+            text-align: left;
+        }
+        .skill-card li {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+        }
+        .skill-card li::before {
+            content: '\f00c'; /* Галочка Font Awesome */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--keitaro-green); /* Зеленая галочка */
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.8em;
+        }
+
+        /* Секция Опыта, Образования, Доп. Инфо */
+        .experience-section, .education-section, .additional-info-section {
+            padding: 60px 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .experience-section h2, .education-section h2, .additional-info-section h2 {
+             font-size: clamp(2rem, 5vw, 2.5rem);
+             color: var(--darker-gray-text); /* Темный заголовок */
+             margin-bottom: 40px;
+             text-align: center;
+             text-shadow: none;
+        }
+
+        .job-entry, .edu-entry {
+            background: var(--light-gray-bg); /* Светло-серый фон */
+            padding: 25px;
+            border-radius: var(--border-radius-md);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--keitaro-green); /* Зеленая полоска слева */
+            box-shadow: var(--shadow-light);
+        }
+
+        .job-entry h3, .edu-entry h3 {
+            font-size: 1.4rem;
+            color: var(--darker-gray-text); /* Темный заголовок */
+            margin-bottom: 5px;
+        }
+
+        .company-info, .edu-entry p {
+            font-size: 0.95rem;
+            color: var(--dark-gray-text); /* Темный текст */
+            margin-bottom: 15px;
+        }
+        .edu-entry p { margin-bottom: 5px; }
+
+        .job-entry ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--darker-gray-text); /* Темный текст списка */
+        }
+        .job-entry li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .job-entry li::before {
+            content: '●';
+            color: var(--keitaro-green); /* Зеленый маркер списка */
+            position: absolute;
+            left: 0;
+            top: 0px;
+            font-size: 1em;
+            line-height: inherit;
+        }
+
+        /* Дополнительная информация */
+        .additional-info-section p {
+            font-size: 1rem;
+            color: var(--dark-gray-text); /* Темный текст */
+            margin-bottom: 15px;
+        }
+        .additional-info-section strong {
+            color: var(--darker-gray-text); /* Темный акцентный текст */
+        }
+        .tools-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tools-list li {
+            background: var(--light-gray-bg); /* Светло-серый фон тега */
+            color: var(--dark-gray-text); /* Темный текст тега */
+            padding: 5px 12px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            border: 1px solid var(--medium-gray-border); /* Серая граница */
+        }
+
+        /* Футер */
+        footer {
+            padding: 40px 5%;
+            margin-top: 40px;
+            text-align: center;
+            background: var(--light-gray-bg); /* Светло-серый фон футера */
+            border-top: 1px solid var(--medium-gray-border); /* Серая граница сверху */
+        }
+        footer .copyright {
+            font-size: 0.9rem;
+            color: var(--dark-gray-text); /* Темный текст копирайта */
+            margin-bottom: 0;
+        }
+
+        /* Адаптивность (остается без изменений, т.к. влияет на структуру, а не цвета) */
+        @media (max-width: 767px) {
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-photo {
+                margin-bottom: 20px;
+                flex-basis: auto;
+            }
+            .profile-info {
+                flex-basis: 100%;
+                text-align: center;
+            }
+            .contact-info li {
+                justify-content: center;
+                font-size: 0.95rem;
+            }
+             .salary-info {
+                justify-content: center;
+             }
+            .profile-summary {
+                text-align: justify;
+            }
+             .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .job-entry, .edu-entry {
+                padding: 20px;
+            }
+            .job-entry h3, .edu-entry h3 { font-size: 1.3rem; }
+            .job-entry ul, .job-entry li { font-size: 0.9rem;}
+        }
+
+        @media (max-width: 480px) {
+             header.resume-header h1 { font-size: 1.8rem; }
+             header.resume-header .subtitle { font-size: 1rem; }
+             .profile-photo { width: 150px; height: 150px; border-width: 3px;}
+             .profile-photo .fallback-icon { font-size: 60px; }
+             .profile-info h2, .profile-summary h2 { font-size: 1.5rem; }
+             .contact-info li, .salary-info { font-size: 0.9rem; }
+             .profile-summary p { font-size: 1rem; }
+             .skills-section h2, .experience-section h2, .education-section h2, .additional-info-section h2 { font-size: 1.8rem; }
+             .skill-card { padding: 20px; }
+             .skill-icon { font-size: 2rem; }
+             .skill-card h3 { font-size: 1.2rem; }
+             .skill-card li { font-size: 0.9rem; }
+             .job-entry, .edu-entry { padding: 15px; }
+             .job-entry h3, .edu-entry h3 { font-size: 1.2rem; }
+             .tools-list li { font-size: 0.85rem; }
+        }
+
+        /* Скрытие ненужных элементов (остается без изменений) */
+        .hero, .coin-canvas, #confetti-canvas, .hero-content, .benefits, .geos, .providers, .leaderboard, .signup, .language-toggle, .provider-modal, .modal, .footer-logo, .footer-links, .privacy-link, .contacts-grid {
+             display: none !important;
+             visibility: hidden !important;
+             opacity: 0 !important;
+             pointer-events: none !important;
+             position: absolute !important;
+             left: -9999px !important;
+         }
+
+    </style>
+</head>
+<body>
+    <header class="resume-header">
+        <!-- Обновленный заголовок -->
+        <h1>Чупров Данила Дмитриевич</h1>
+        <p class="subtitle">Специалист технической поддержки AdTech / Ad Tracking & Affiliate Platforms Expert</p>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <div class="profile-card">
+                <div class="profile-photo">
+                    <i class="fas fa-user fallback-icon"></i>
+                    <!-- !!! НЕ ЗАБУДЬ ЗАМЕНИТЬ НА ПУТЬ К СВОЕМУ ФОТО !!! -->
+                    <img src="images/profile-photo.jpg"
+                         alt="Фото Чупрова Данилы"
+                         onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';"
+                         onload="this.previousElementSibling.style.display='none';">
+                </div>
+                <div class="profile-info">
+                    <h2>Личная информация</h2>
+                    <ul class="contact-info">
+                        <!-- Контакты из финальной версии -->
+                        <li><i class="fas fa-map-marker-alt icon"></i> <strong>Город:</strong> Нижегородская область, Россия (полная удаленная работа)</li>
+                        <li><i class="fas fa-envelope icon"></i> <strong>Email:</strong> <a href="mailto:21scourse@gmail.com">21scourse@gmail.com</a></li>
+                        <li><i class="fas fa-phone icon"></i> <strong>Телефон:</strong> <a href="tel:+79615665945">+7 (961) 566-59-45</a></li>
+                        <li><i class="fab fa-telegram icon"></i> <strong>Telegram:</strong> @TechDanila</li>
+                        <!-- Доп информация, если нужна -->
+                        <li><i class="fas fa-calendar-alt icon"></i> <strong>Дата рождения:</strong> 12.06.2000</li>
+                        <li><i class="fas fa-user icon"></i> <strong>Семейное положение:</strong> Женат</li>
+                    </ul>
+                    <div class="salary-info">
+                        <i class="fas fa-money-bill-wave icon"></i>
+                        <!-- Обновленная желаемая зарплата -->
+                        <strong>Желаемая зарплата:</strong> от 1500 EUR (net)
+                    </div>
+                </div>
+            </div>
+            <div class="profile-summary">
+                 <!-- Обновленное название секции -->
+                <h2>Ключевая информация / Executive Summary</h2>
+                <!-- Текст из финальной версии -->
+                <p>
+                    Высококвалифицированный технический специалист с углубленной 4+ летней экспертизой в экосистеме трекинга и аналитики в Affiliate Marketing и iGaming. Обладаю практическим опытом работы с ведущими трекинговыми системами (включая глубокое знание Keitaro, опыт с Binom) и платформами партнерского маркетинга (Affise, Alanbase, Scaleo и др.). Опыт включает не только настройку и поддержку для конечных пользователей, но и проектирование отказоустойчивых трекинговых архитектур, интеграции через API с разнообразными источниками трафика и сервисами (AppsFlyer, GTM, рекламные сети), решение нестандартных задач и обеспечение стабильности в высоконагруженных системах. Проводил сравнительный анализ платформ для выбора оптимальных решений. Опыт на руководящих позициях (CPO, Head of Tech) дал глубокое понимание бизнес-целей клиентов AdTech-решений и умение выстраивать эффективную B2B коммуникацию. Стремлюсь применить накопленную экспертизу для усиления команды ведущей технологической компании в AdTech и обеспечения высочайшего уровня клиентского сервиса.
+                </p>
+            </div>
+        </section>
+
+        <div class="section-divider-container"><div class="neon-divider"></div></div>
+
+        <section class="skills-section">
+            <h2>Ключевые навыки и компетенции</h2>
+            <div class="skills-grid">
+                <!-- Блок 1: Экспертиза AdTech -->
+                <div class="skill-card">
+                    <!-- Иконка для трекинга/платформ -->
+                    <i class="fas fa-chart-line fa-2x skill-icon"></i>
+                    <h3>Экспертиза AdTech & Affiliate Marketing</h3>
+                    <ul>
+                        <li>Глубокое знание Keitaro (установка, настройка, API, troubleshooting)</li>
+                        <li>Опыт работы с трекерами: Binom и др.</li>
+                        <li>Опыт работы с Платформами ПП: Alanbase, Affise, Scaleo и др.</li>
+                        <li>Проведение сравнительного анализа платформ</li>
+                        <li>Интеграции: S2S Postback, API (источники трафика, ПП, CRM)</li>
+                        <li>Интеграция с Mobile/Web: AppsFlyer, Google Tag Manager, Google Analytics</li>
+                        <li>Понимание Facebook Conversion API</li>
+                        <li>Инфраструктура: Оптимизация серверов под трекеры</li>
+                        <li>Безопасность: Anti-bot, клоакинг, работа с доменами/прокси</li>
+                        <li>Работа с лендингами/офферами (сплит-тесты, редактор, пиксели)</li>
+                    </ul>
+                </div>
+                 <!-- Блок 2: Технические Навыки -->
+                 <div class="skill-card">
+                    <!-- Иконка для кода/серверов -->
+                    <i class="fas fa-laptop-code fa-2x skill-icon"></i>
+                    <h3>Технические навыки</h3>
+                    <ul>
+                        <li>Протоколы: HTTP/HTTPS (глубокое понимание)</li>
+                        <li>Веб-технологии: HTML, CSS, JavaScript (чтение, понимание, правки)</li>
+                        <li>ОС и Серверы: Linux (CLI Bash), Управление VPS/VDS, FastPanel</li>
+                        <li>Базы данных: SQL (SELECT, JOIN, понимание структуры)</li>
+                        <li>Языки: Java (Backend, Telegram боты - API, State, Cache, Async)</li>
+                        <li>API: REST API, JSON, XML, Postman</li>
+                        <li>Инструменты: GTM, GA, DevTools, VS Code, Git (базовый)</li>
+                         <li>Табличные редакторы (Excel, Google Sheets) - продвинутый пользователь</li>
+                    </ul>
+                </div>
+                 <!-- Блок 3: Поддержка и Процессы -->
+                 <div class="skill-card">
+                     <!-- Иконка для коммуникации/поддержки -->
+                    <i class="fas fa-headset fa-2x skill-icon"></i>
+                    <h3>Поддержка, Коммуникация, Процессы</h3>
+                    <ul>
+                        <li>Техническая поддержка (Tier 2/3)</li>
+                        <li>B2B Коммуникация (объяснение сложного простым языком)</li>
+                        <li>Разработка технической документации (регламенты, инструкции, FAQ)</li>
+                        <li>Тестирование ПО (функциональное, регрессионное, API)</li>
+                        <li>Баг-трекинг и отчетность (Trello, готов к Jira)</li>
+                        <li>Работа с данными (обработка, выгрузка, анализ)</li>
+                        <li>Внимание к деталям</li>
+                        <li>Английский язык (B2 - технический, переписка)</li>
+                         <li>Аналитическое мышление и решение проблем</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider-container"><div class="neon-divider"></div></div>
+
+        <section class="experience-section">
+            <h2>Опыт работы</h2>
+
+            <!-- Актуальные должности сверху -->
+            <article class="job-entry">
+                <h3>CPO / Product Director</h3>
+                <p class="company-info"><strong>Организация:</strong> Прямой рекламодатель iGaming (NDA) | <strong>Период:</strong> 04.2024 – Настоящее время</p> <!-- Уточнил дату начала если надо -->
+                <ul>
+                     <li>Проектирование архитектуры трекинга (Keitaro) и партнерской платформы (Alanbase), интеграция со Slotegrator.</li>
+                     <li>Настройка передачи событий в GA через GTM.</li>
+                     <li>Разработка стратегии защиты инфраструктуры (домены трекера и продукта) от блокировок.</li>
+                     <li>Анализ и оптимизация работы Keitaro под высокие нагрузки.</li>
+                     <li>Постановка задач техническим специалистам (Frontend, Infra), контроль качества.</li>
+                     <li>Тестирование и валидация корректности трекинга, постбеков, API интеграций.</li>
+                </ul>
+            </article>
+
+             <article class="job-entry">
+                <h3>Руководитель технического отдела</h3>
+                <p class="company-info"><strong>Организация:</strong> "Партнерс" (Партнерская сеть, основной трекер Keitaro) (NDA) | <strong>Период:</strong> 01.2023 – 02.2024 (1 год 1 мес)</p>
+                <ul>
+                     <li>Обеспечение бесперебойной работы Keitaro Tracker и интеграций с платформой ПП.</li>
+                     <li>Глубокая техподдержка партнеров (настройка кампаний, S2S, API Keitaro).</li>
+                     <li>Диагностика и решение сложных технических проблем Keitaro и платформы.</li>
+                     <li>Тестирование новых офферов/интеграций на корректность работы с Keitaro.</li>
+                     <li>Разработка и поддержка базы знаний по работе с Keitaro.</li>
+                     <li>Управление серверами под Keitaro (включая FastPanel).</li>
+                </ul>
+            </article>
+
+            <article class="job-entry">
+                <h3>Project Manager / Технический специалист</h3>
+                <p class="company-info"><strong>Организация:</strong> "Групп" (Арбитражная команда) (NDA) | <strong>Период:</strong> 04.2022 – 10.2022 (6 мес)</p>
+                <ul>
+                     <li>Ежедневная работа с Keitaro и Binom: установка, настройка, ведение кампаний.</li>
+                     <li>Интеграция трекеров с источниками трафика, ПП, мобильными трекерами (AppsFlyer).</li>
+                     <li>Тестирование и отладка передачи данных и конверсий.</li>
+                     <li>Техническая поддержка баингового отдела по вопросам использования трекеров.</li>
+                     <li>Разработка чек-листов для проверки настройки трекинга.</li>
+                     <li>Настройка и управление VPS/VDS серверами под трекеры (включая FastPanel).</li>
+                </ul>
+            </article>
+
+            <!-- Добавлен опыт Тинькофф -->
+            <article class="job-entry">
+                <h3>Специалист по обработке запросов государственных органов</h3>
+                <p class="company-info"><strong>Организация:</strong> Тинькофф Банк | <strong>Период:</strong> 12.2021 - 03.2022 (3 мес)</p> <!-- УТОЧНИ ПЕРИОД -->
+                <ul>
+                    <li>Обработка и исполнение запросов от правоохранительных органов в установленные сроки.</li>
+                    <li>Анализ запросов, выгрузка и обработка данных по банковским продуктам клиентов/контрагентов.</li>
+                    <li>Подготовка официальных ответов и отчетов.</li>
+                    <li>Изучение специфики банковских продуктов для корректного выполнения запросов.</li>
+                    <li>Ведение отчетности по обработанным запросам.</li>
+                    <li>Интенсивная работа с электронными таблицами (Excel/Google Sheets).</li>
+                </ul>
+            </article>
+
+        </section>
+
+        <div class="section-divider-container"><div class="neon-divider"></div></div>
+
+        <section class="education-section">
+            <h2>Образование</h2>
+             <article class="edu-entry">
+                <h3>Колледж связи №54 им. П. М. Вострухина</h3>
+                <p><strong>Год окончания:</strong> 2021</p>
+                <p><strong>Факультет:</strong> Организация и технология защиты информации</p>
+                <p><strong>Специальность:</strong> Техник по защите информации</p>
+                <p><strong>Форма обучения:</strong> Очная</p>
+            </article>
+            <article class="edu-entry">
+                <h3>IT Школа Samsung</h3>
+                 <p><strong>Год окончания:</strong> 2020</p>
+                <p><strong>Специальность:</strong> Android-разработка (включая основы Java)</p>
+                 <p><strong>Форма обучения:</strong> Очно-заочная (вечерняя)</p>
+            </article>
+        </section>
+
+         <div class="section-divider-container"><div class="neon-divider"></div></div>
+
+         <section class="additional-info-section">
+             <h2>Дополнительная информация</h2>
+             <!-- Обновлен список Языки -->
+             <p><strong>Языки:</strong> Русский (родной), Английский (B2 - технический, чтение документации, переписка)</p>
+             <p><strong>Инструменты и Технологии:</strong></p>
+             <!-- Обновлен список Tools -->
+             <ul class="tools-list">
+                 <li>Трекеры: Keitaro, Binom</li>
+                 <li>Платформы ПП: Alanbase, Affise, Scaleo</li>
+                 <li>Аналитика/Mobile: AppsFlyer, Google Tag Manager, Google Analytics</li>
+                 <li>Веб: HTML, CSS, JS (базовый), HTTP/HTTPS</li>
+                 <li>Серверы/ОС: Linux (Bash), VPS/VDS, FastPanel</li>
+                 <li>БД: SQL (базовый)</li>
+                 <li>Языки: Java (Backend/Bots), PHP (чтение)</li>
+                 <li>Прочее: API (REST, CAPI), GTM, Postman, Trello, Excel/Sheets</li>
+             </ul>
+             <p>Глубоко понимаю специфику и потребности пользователей AdTech-решений.</p>
+             <p>Обладаю аналитическим складом ума, системным подходом к решению проблем, высоким уровнем внимания к деталям.</p>
+             <p>Проактивен, мотивирован на постоянное обучение и развитие в области AdTech.</p>
+             <p>Заинтересован в долгосрочном сотрудничестве и профессиональном росте в рамках технологической продуктовой компании, лидирующей в AdTech.</p>
+             <p>Готов к выполнению тестового задания.</p>
+             <p>Предпочитаю полностью удаленный формат работы.</p>
+         </section>
+
+    </main>
+
+    <footer>
+        <p class="copyright">© 2024 Чупров Данила</p> <!-- Обновил год -->
+    </footer>
+</body>
+</html>
